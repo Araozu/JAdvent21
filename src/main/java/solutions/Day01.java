@@ -65,6 +65,12 @@ public class Day01 extends Solution {
         return values.get(endIndex - 2) + values.get(endIndex - 1) + values.get(endIndex);
     }
 
+    /**
+     * Solves the second part
+     *
+     * @param values ArrayList with values of the puzzle
+     * @return The result as a String
+     */
     protected String secondPart(ArrayList<Integer> values) {
         int counter = 0;
         var previousValue = getMeasurement(values, 2);
