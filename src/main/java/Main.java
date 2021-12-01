@@ -1,5 +1,7 @@
 import environment.DefaultEnvironment;
 import environment.Environment;
+import solutions.Day01;
+import utils.Pair;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -37,6 +39,20 @@ public class Main {
             throw new IllegalArgumentException("The path `" + inputsFolderPath + "` is not a valid folder.");
         }
 
+        Pair<String, String> result;
+        switch (dayNumber) {
+            case 1:
+                result = new Day01(env).solve();
+                break;
+            default:
+                throw new RuntimeException("TODO: The day " + dayNumber + " doesn't have a solution yet.");
+        }
+        String firstPart = result.first;
+        String secondPart = result.second;
+
+        System.out.println("Results of day " + dayNumber + ":");
+        System.out.println("part 1: " + firstPart);
+        System.out.println("part 2: " + secondPart);
     }
 
     public static void execute(String[] args) {
