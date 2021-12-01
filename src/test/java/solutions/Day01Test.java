@@ -35,4 +35,36 @@ public class Day01Test {
         Assertions.assertNotNull(result);
         Assertions.assertEquals("7", result);
     }
+
+    @Test
+    @DisplayName("getMeasurement should return the correct value")
+    public void testGetMeasurement() {
+        ArrayList<Integer> values = new ArrayList<>();
+        values.add(199);
+        values.add(200);
+        values.add(208);
+        int result = day01.getMeasurement(values, 2);
+        Assertions.assertEquals(607, result);
+    }
+
+    @Test
+    @DisplayName("getMeasurement should throw if the end index is less than 2")
+    public void testGetMeasurementIncorrectIndex() {
+        try {
+            ArrayList<Integer> values = new ArrayList<>();
+            day01.getMeasurement(values, 1);
+            Assertions.fail();
+        } catch (RuntimeException e) {
+            Assertions.assertEquals("Day01, getMeasurement: Index is less than 2.", e.getMessage());
+        }
+    }
+
+    @Test
+    @DisplayName("secondPart should return the correct answer")
+    public void testSecondPart(){
+        String result = day01.secondPart(day01.loadValues());
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals("5", result);
+    }
+
 }
