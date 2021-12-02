@@ -1,14 +1,20 @@
 package solutions.day02;
 
 public class Day02UpInstruction extends Day02Instruction {
-    private final int amount;
-
     public Day02UpInstruction(int amount) {
-        this.amount = amount;
+        super(amount);
+    }
+
+    public Day02UpInstruction(int amount, boolean isFirstInstructionSet) {
+        super(amount, isFirstInstructionSet);
     }
 
     @Override
     public void execute(Day02Position position) {
-        position.decreaseDepth(amount);
+        if (isFirstInstructionSet) {
+            position.decreaseDepth(amount);
+        } else {
+            position.decreaseAim(amount);
+        }
     }
 }

@@ -24,8 +24,15 @@ public class Day02Test {
     @Test
     @DisplayName("firstPart should return the correct value")
     public void testFirstPart() {
-        int result = day02.firstPart();
+        int result = day02.firstPart(day02.loadStringValues());
         Assertions.assertEquals(150, result);
+    }
+
+    @Test
+    @DisplayName("secondPart should return the correct value")
+    public void testSecondPart(){
+        int result = day02.secondPart(day02.loadStringValues());
+        Assertions.assertEquals(900, result);
     }
 
 }
