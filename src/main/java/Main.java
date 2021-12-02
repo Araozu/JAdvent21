@@ -1,6 +1,7 @@
 import environment.DefaultEnvironment;
 import environment.Environment;
 import solutions.Day01;
+import solutions.Day02;
 import utils.Pair;
 
 import java.nio.file.Files;
@@ -43,6 +44,9 @@ public class Main {
         switch (dayNumber) {
             case 1:
                 result = new Day01(env).solve();
+                break;
+            case 2:
+                result = new Day02(env).solve();
                 break;
             default:
                 throw new RuntimeException("TODO: The day " + dayNumber + " doesn't have a solution yet.");

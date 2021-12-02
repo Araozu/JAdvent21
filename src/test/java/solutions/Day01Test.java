@@ -9,11 +9,11 @@ import java.util.ArrayList;
 public class Day01Test {
 
     private final Day01 day01 = new Day01(new TestEnvironment());
+    private final ArrayList<Integer> values = day01.loadIntValues();
 
     @Test
     @DisplayName("loadValues should load the values into an arraylist")
     public void testLoadValues() {
-        ArrayList<Integer> values = day01.loadValues();
         Assertions.assertNotNull(values);
         Assertions.assertEquals(10, values.size());
         Assertions.assertEquals(199, values.get(0));
@@ -31,7 +31,7 @@ public class Day01Test {
     @Test
     @DisplayName("firstPart should give the correct answer")
     public void testFirstPart() {
-        String result = day01.firstPart(day01.loadValues());
+        String result = day01.firstPart(values);
         Assertions.assertNotNull(result);
         Assertions.assertEquals("7", result);
     }
@@ -61,8 +61,8 @@ public class Day01Test {
 
     @Test
     @DisplayName("secondPart should return the correct answer")
-    public void testSecondPart(){
-        String result = day01.secondPart(day01.loadValues());
+    public void testSecondPart() {
+        String result = day01.secondPart(values);
         Assertions.assertNotNull(result);
         Assertions.assertEquals("5", result);
     }

@@ -14,26 +14,6 @@ public class Day01 extends Solution {
     }
 
     /**
-     * Loads the values of the puzzle into an ArrayList.
-     *
-     * @return ArrayList with the values of the puzzle.
-     */
-    protected ArrayList<Integer> loadValues() {
-        try {
-            ArrayList<Integer> values = new ArrayList<>();
-            Scanner scanner = new Scanner(file);
-
-            while (scanner.hasNextInt()) {
-                values.add(scanner.nextInt());
-            }
-
-            return values;
-        } catch (FileNotFoundException ignored) {
-            return null;
-        }
-    }
-
-    /**
      * Solves the first part
      *
      * @param values ArrayList with the values of the puzzle
@@ -86,7 +66,7 @@ public class Day01 extends Solution {
 
     @Override
     public Pair<String, String> solve() {
-        ArrayList<Integer> values = loadValues();
+        ArrayList<Integer> values = loadIntValues();
         return new Pair<>(firstPart(values), secondPart(values));
     }
 }
