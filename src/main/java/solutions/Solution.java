@@ -33,7 +33,7 @@ abstract class Solution {
             ArrayList<String> values = new ArrayList<>();
             Scanner scanner = new Scanner(file);
 
-            while (scanner.hasNextInt()) {
+            while (scanner.hasNextLine()) {
                 String nextLine = scanner.nextLine();
                 if (nextLine.length() == 0) continue;
                 values.add(nextLine);
