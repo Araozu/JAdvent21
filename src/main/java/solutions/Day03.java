@@ -59,8 +59,73 @@ public class Day03 extends Solution {
         return (result.first * result.second) + "";
     }
 
+    private ArrayList<String> cloneArrayList(ArrayList<String> source) {
+        ArrayList<String> result = new ArrayList<>(source.size());
+        result.addAll(source);
+        return result;
+    }
+
+    protected int getOxygenValue(ArrayList<String> originalValues) {
+        ArrayList<String> values = cloneArrayList(originalValues);
+
+        String result = null;
+        for (int i = 0; i < originalValues.get(0).length(); i++) {
+            if (result != null) break;
+
+            char bitCriteria = getCommonUncommonBit(values, i).first;
+
+            for (int j = 0; j < values.size(); j++) {
+                if (values.get(j).charAt(i) != bitCriteria) {
+                    values.remove(j);
+                    j--;
+                }
+                if (values.size() == 1) {
+                    result = values.get(0);
+                }
+            }
+        }
+
+        if (result == null) {
+            throw new RuntimeException("Day03 getOxygenValue: Value not found");
+        }
+
+        return Integer.parseInt(result, 2);
+    }
+
+    protected int getCO2Values(ArrayList<String> originalValues) {
+        ArrayList<String> values = cloneArrayList(originalValues);
+
+        String result = null;
+        for (int i = 0; i < originalValues.get(0).length(); i++) {
+            if (result != null) break;
+
+            char bitCriteria = getCommonUncommonBit(values, i).second;
+
+            for (int j = 0; j < values.size(); j++) {
+                if (values.get(j).charAt(i) != bitCriteria) {
+                    values.remove(j);
+                    j--;
+                }
+                if (values.size() == 1) {
+                    result = values.get(0);
+                }
+            }
+        }
+
+        if (result == null) {
+            throw new RuntimeException("Day03 getOxygenValue: Value not found");
+        }
+
+        return Integer.parseInt(result, 2);
+    }
+
+    protected String secondPart(ArrayList<String> values) {
+        return (getOxygenValue(values) * getCO2Values(values)) + "";
+    }
+
     @Override
     public Pair<String, String> solve() {
-        return new Pair<>(firstPart(loadStringValues()), null);
+        ArrayList<String> values = loadStringValues();
+        return new Pair<>(firstPart(values), secondPart(values));
     }
 }

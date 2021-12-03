@@ -71,5 +71,25 @@ public class Day03Test {
         String result = day03.firstPart(day03.loadStringValues());
         Assertions.assertEquals("198", result);
     }
-    
+
+    @Test
+    @DisplayName("getOxygenValues should return the correct value")
+    public void testGetOxygenValues() {
+        int result = day03.getOxygenValue(day03.loadStringValues());
+        Assertions.assertEquals(23, result);
+    }
+
+    @Test
+    @DisplayName("getCO2Values should return the correct value")
+    public void testGetCO2Values() {
+        int result = day03.getCO2Values(day03.loadStringValues());
+        Assertions.assertEquals(10, result);
+    }
+
+    @Test
+    @DisplayName("secondPart should return the correct value")
+    public void testSecondPart() {
+        String result = day03.secondPart(day03.loadStringValues());
+        Assertions.assertEquals("230", result);
+    }
 }
