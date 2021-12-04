@@ -72,9 +72,37 @@ public class Day04 extends Solution {
         return result + "";
     }
 
+    protected String secondPart(Pair<ArrayList<Integer>, ArrayList<Board>> values) {
+        Board winningBoard = null;
+        int winningNumber = -1;
+        ArrayList<Board> boards = values.second;
+        mainLoop:
+        for (int number : values.first) {
+            for (int i = 0; i < boards.size(); i++) {
+                Board board = boards.get(i);
+                board.markNumber(number);
+                if (board.isWinner()) {
+                    boards.remove(i);
+                    i--;
+
+                    if (boards.size() == 0) {
+                        winningBoard = board;
+                        winningNumber = number;
+                        break mainLoop;
+                    }
+                }
+            }
+        }
+        if (winningBoard == null) {
+            throw new RuntimeException("Winner board not found.");
+        }
+        int result = winningBoard.getUnmarkedSum() * winningNumber;
+        return result + "";
+    }
+
     @Override
     public Pair<String, String> solve() {
         Pair<ArrayList<Integer>, ArrayList<Board>> values = getBingoNumbers();
-        return new Pair<>(firstPart(values), null);
+        return new Pair<>(firstPart(values), secondPart(values));
     }
 }

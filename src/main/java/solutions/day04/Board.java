@@ -54,6 +54,7 @@ public class Board {
     }
 
     protected final ArrayList<ArrayList<MutablePair<Integer, Boolean>>> board;
+    private boolean hasWon = false;
 
     private Board(ArrayList<ArrayList<MutablePair<Integer, Boolean>>> board) {
         this.board = board;
@@ -101,7 +102,12 @@ public class Board {
     }
 
     public boolean isWinner() {
-        return checkRows() || checkColumns();
+        if (hasWon) return true;
+        boolean result = checkRows() || checkColumns();
+        if (result) {
+            hasWon = true;
+        }
+        return result;
     }
 
     public int getUnmarkedSum() {
