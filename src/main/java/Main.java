@@ -1,9 +1,6 @@
 import environment.DefaultEnvironment;
 import environment.Environment;
-import solutions.Day01;
-import solutions.Day02;
-import solutions.Day03;
-import solutions.Day04;
+import solutions.*;
 import utils.Pair;
 
 import java.nio.file.Files;
@@ -55,6 +52,9 @@ public class Main {
                 break;
             case 4:
                 result = new Day04(env).solve();
+                break;
+            case 5:
+                result = new Day05(env).solve();
                 break;
             default:
                 throw new RuntimeException("TODO: The day " + dayNumber + " doesn't have a solution yet.");
