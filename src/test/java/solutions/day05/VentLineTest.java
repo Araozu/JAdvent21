@@ -43,4 +43,18 @@ public class VentLineTest {
         Assertions.assertEquals(new Point(13, 5), ventLine.points.get(4));
     }
 
+    @Test
+    @DisplayName("should create diagonal line")
+    public void testDiagonal() {
+        var ventLine = new VentLine("1,1 -> 3,3", true);
+        Assertions.assertEquals(new Point(1, 1), ventLine.points.get(0));
+        Assertions.assertEquals(new Point(2, 2), ventLine.points.get(1));
+        Assertions.assertEquals(new Point(3, 3), ventLine.points.get(2));
+
+        ventLine = new VentLine("3,3 -> 1,1", true);
+        Assertions.assertEquals(new Point(3, 3), ventLine.points.get(0));
+        Assertions.assertEquals(new Point(2, 2), ventLine.points.get(1));
+        Assertions.assertEquals(new Point(1, 1), ventLine.points.get(2));
+    }
+
 }

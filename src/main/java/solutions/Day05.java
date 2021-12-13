@@ -18,8 +18,16 @@ public class Day05 extends Solution {
         return "" + matrix.getIntersections();
     }
 
+    protected String secondPart() {
+        Matrix matrix = new Matrix();
+        for (String line : loadStringValues()) {
+            new VentLine(line, true).apply(matrix);
+        }
+        return "" + matrix.getIntersections();
+    }
+
     @Override
     public Pair<String, String> solve() {
-        return new Pair<>(firstPart(), null);
+        return new Pair<>(firstPart(), secondPart());
     }
 }

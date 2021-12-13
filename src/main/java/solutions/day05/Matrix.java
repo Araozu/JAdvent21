@@ -1,6 +1,5 @@
 package solutions.day05;
 
-import utils.Pair;
 import utils.Point;
 
 import java.util.HashMap;
@@ -33,7 +32,7 @@ public class Matrix {
      * @param position The position
      * @return The value stored
      */
-    public int get(Point position) {
+    protected int get(Point position) {
         if (position.first < 0 || position.second < 0) {
             throw new RuntimeException("Matrix: attempted to get from negative position");
         }
